@@ -1,0 +1,53 @@
+name: Notion → GitHub Pages 自動更新
+
+on:
+  # 毎日 午前8時（日本時間）に自動実行
+  schedule:
+    - cron: '0 23 * * *'   # UTC 23:00 = JST 8:00
+
+  # GitHubのActionsタブから手動でも実行可能
+  workflow_dispatch:
+
+  # コードをpushしたときも実行
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'index.html'   # buildスクリプト自体の変更時のみ除外
+
+permissions:
+  contents: write   # index.htmlをコミットするために必要
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. リポジトリをチェックアウト
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2. Python セットアップ
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # 3. 依存ライブラリをインストール
+      - name: Install dependencies
+        run: pip install requests
+
+      # 4. Notionからデータ取得 → index.html 生成
+      - name: Build from Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_DB_ID: ${{ secrets.NOTION_DB_ID }}
+        run: python scripts/build.py
+
+      # 5. 生成した index.html をコミット & プッシュ
+      - name: Commit & Push
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --staged --quiet || git commit -m "🔄 Notionから自動更新 $(date '+%Y/%m/%d %H:%M') JST"
+          git push
