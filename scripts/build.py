@@ -252,7 +252,7 @@ def build_html(events):
         <div class="how-card">
           <h3>🏢 リアル参加</h3>
           <ul>
-            <li>東京都中央区京橋</li>
+            <li>東京都杉並区高円寺</li>
             <li>定員：20名（先着順）</li>
             <li>参加費：<strong>無料</strong></li>
           </ul>
