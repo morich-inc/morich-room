@@ -32,8 +32,23 @@ def fetch_events():
         "sorts": [{"property": "開催日", "direction": "ascending"}],
     }
     res = requests.post(url, headers=NOTION_HEADERS, json=payload)
-    res.raise_for_status()
-    return res.json().get("results", [])
+
+    # デバッグ: レスポンスの内容を出力
+    print(f"  APIステータス: {res.status_code}")
+    data = res.json()
+    if res.status_code != 200:
+        print(f"  エラー内容: {data}")
+        res.raise_for_status()
+
+    results = data.get("results", [])
+    if results:
+        # 最初の1件のプロパティ名を表示して列名を確認
+        print(f"  取得件数（フィルターなし）: {len(results)}")
+        print(f"  Notionの列名一覧: {list(results[0]['properties'].keys())}")
+    else:
+        print(f"  レスポンス全体: {data}")
+
+    return results
 
 def parse_event(page):
     """Notionページのプロパティを辞書に変換"""
