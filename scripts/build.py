@@ -89,9 +89,18 @@ def parse_event(page):
     company = text("会社名") or company_role_combined
     role    = text("役職")   # 別列があればそちらを使う、なければ空
 
+    # Vol番号：テキスト型・列名「Vol.」に対応
+    vol_raw = text("Vol.") or text("Vol")
+    vol_num = None
+    if vol_raw:
+        try:
+            vol_num = int(str(vol_raw).replace("Vol.", "").replace("Vol", "").strip())
+        except ValueError:
+            vol_num = vol_raw  # 変換できなければそのまま表示
+
     event_date = date_val("開催日")
     return {
-        "vol":        number("Vol"),
+        "vol":        vol_num,
         "date":       event_date,
         "date_str":   event_date.strftime("%-m月%-d日(%a)") if event_date else "",
         "guest_name": text("ゲスト名"),
