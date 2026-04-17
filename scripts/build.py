@@ -263,7 +263,7 @@ def build_html(events):
           <ul>
             <li>東京都杉並区高円寺</li>
             <li>定員：20名（先着順）</li>
-            <li>参加費：<strong>無料</strong></li>
+            <li>参加費：<strong>8,000円</strong></li>
           </ul>
         </div>
         <div class="how-card">
