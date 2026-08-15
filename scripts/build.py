@@ -202,6 +202,16 @@ def build_html(events):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="morichの部屋｜上場企業の社長が立ち寄る空間">
+    <meta property="og:description" content="経営者の本音に迫る対談番組。毎月上場企業の社長をお招きし、森本千賀子とリアルトーク。リアル参加＆YouTubeライブ配信で開催中。">
+    <meta property="og:image" content="https://morich-inc.github.io/morich-room/assets/logo.png">
+    <meta property="og:url" content="https://morich-inc.github.io/morich-room/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="morichの部屋">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="morichの部屋｜上場企業の社長が立ち寄る空間">
+    <meta name="twitter:description" content="経営者の本音に迫る対談番組。毎月上場企業の社長をお招きし、森本千賀子とリアルトーク。リアル参加＆YouTubeライブ配信で開催中。">
+    <meta name="twitter:image" content="https://morich-inc.github.io/morich-room/assets/logo.png">
   <meta name="robots" content="noindex, nofollow">
   <title>morichの部屋｜上場企業の社長が立ち寄る空間</title>
   <link rel="stylesheet" href="assets/style.css">
