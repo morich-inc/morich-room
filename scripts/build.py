@@ -9,7 +9,7 @@ import requests
 from datetime import datetime, date, timezone, timedelta
 from pathlib import Path
 
-# ===== 設定 =====
+# ===== 設定 ====
 NOTION_TOKEN    = os.environ["NOTION_TOKEN"]           # GitHub Secretsから取得
 NOTION_DB_ID    = os.environ["NOTION_DB_ID"]           # イベントデータベースのID
 OUTPUT_PATH     = Path(__file__).parent.parent / "index.html"
@@ -214,6 +214,8 @@ def build_html(events):
     <meta name="twitter:image" content="https://morich-inc.github.io/morich-room/assets/logo.png">
   <meta name="robots" content="noindex, nofollow">
   <title>morichの部屋｜上場企業の社長が立ち寄る空間</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
