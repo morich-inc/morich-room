@@ -172,7 +172,7 @@ def past_row(ev):
     </tr>"""
 
 def build_html(events):
-    upcoming = [e for e in events if e["date"] and e["date"] >= TODAY and e["status"] != "キャンセル"]
+    upcoming = [e for e in events if e["date"] and e["date"] >= TODAY and e["status"] not in ["キャンセル", "終了"]]
     past     = [e for e in events if e["date"] and e["date"] < TODAY  and e["status"] != "キャンセル"]
     past.sort(key=lambda e: e["date"], reverse=True)
 
