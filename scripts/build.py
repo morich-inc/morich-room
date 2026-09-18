@@ -258,14 +258,6 @@ def build_html(events):
       </div>
     </section>
 
-    <!-- 次回開催 -->
-    <section class="section" id="next">
-      <h2 class="section__title">次回開催</h2>
-      {next_event_html}
-    </section>
-
-    {upcoming_section}
-
     <!-- 参加方法 -->
     <section class="section section--how">
       <h2 class="section__title">参加方法</h2>
@@ -295,6 +287,15 @@ def build_html(events):
         </div>
       </div>
     </section>
+
+
+    <!-- 次回開催 -->
+    <section class="section" id="next">
+      <h2 class="section__title">次回開催</h2>
+      {next_event_html}
+    </section>
+
+    {upcoming_section}
 
     {past_section}
 
