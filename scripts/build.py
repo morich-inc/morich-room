@@ -270,13 +270,20 @@ def build_html(events):
     <section class="section section--how">
       <h2 class="section__title">参加方法</h2>
       <div class="how-grid">
-        <div class="how-card">
+      <div class="how-card">
           <h3>🏢 リアル参加</h3>
           <ul>
             <li>東京都杉並区高円寺</li>
             <li>定員：20名（先着順）</li>
-            <li>参加費：<strong>8,000円</strong></li>
+            <li>参加費：<strong>10,000円</strong>（10月より改定）</li>
           </ul>
+        </div>
+        <div class="how-card" style="background:#fff8e1;border:1px solid #f5c842;margin-top:12px;">
+          <h3>📢 お申し込みについて</h3>
+          <p style="font-size:0.9rem;line-height:1.7;">
+            現在、お申し込みシステムの移行準備中のため<strong>一時受付停止中</strong>です。<br>
+            9月末までに再開予定です。今しばらくお待ちください。
+          </p>
         </div>
         <div class="how-card">
           <h3>📺 オンライン参加</h3>
